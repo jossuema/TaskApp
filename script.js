@@ -11,9 +11,10 @@
     //console.log(input.value)
     const input = document.getElementById("inputFormId");
     const datebox = document.querySelector("[data-form-date]");
-    if(word !== "" || date !== ""){
+    if(word != "" && date != ""){
       input.style="background-color: white; opacity: 1;"
       datebox.style="background-color: white; opacity: 1;"
+      console.log("que")
       crearTarea();
     }else{
       input.style="background-color: red; opacity: .3;"

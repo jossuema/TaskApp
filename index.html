@@ -37,6 +37,18 @@
         </ul>
       </div>
     </main>
+    <script>
+      function reset(){
+        const input = document.getElementById("inputFormId");
+        const datebox = document.querySelector("[data-form-date]");
+        input.style="background-color: white; opacity: 1;"
+        datebox.style="background-color: white; opacity: 1;"
+        console.log("papu")
+      }
+      
+      const input = document.querySelector("[data-form-imput]");
+      input.addEventListener('click', reset)
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
     <script type="module" src="script.js"></script>
   </body>
