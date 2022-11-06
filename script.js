@@ -12,21 +12,26 @@
     if(word != "" && date != ""){
       input.style="background-color: white; opacity: 1;"
       datebox.style="background-color: white; opacity: 1;"
-      crearTarea();
+      addTask();
     }else{
       input.style="background-color: red; opacity: .3;"
       datebox.style="background-color: red; opacity: .3;"
     }
+  }
+
+  const addTask = () => {
+    const list = document.querySelector('[data-list]');
+    const task = crearTarea();
+    list.appendChild(task);
   }
   
   function crearTarea(){
     const input = document.querySelector("[data-form-imput]");
     const date = document.querySelector("[data-form-date]");
 
-    console.log(date.value);
-    console.log(moment(date.value).format("DD/MM/YYYY"));
-    const data = new Date()
-    console.log(data)
+    const dateElement = document.createElement('span');
+    dateElement.innerHTML = moment(date.value).format("DD/MM/YYYY");
+    console.log(dateElement);
 
     const list = document.querySelector('[data-list]');
     const task = document.createElement('li');
@@ -43,8 +48,9 @@
     //task.innerHTML = content;
     input.value = '';
     task.appendChild(taskContent);
+    task.appendChild(dateElement);
     task.appendChild(deleteIcon());
-    list.appendChild(task);
+    return task;
   }
 
   btn.addEventListener('click', comprobarTarea)
