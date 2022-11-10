@@ -1,5 +1,6 @@
 import checkComplete from "./checkComplete.js";
 import deleteIcon from "./deleteIcon.js";
+import readTask from "./storageTask.js";
 
 const addTask = () => {
     const list = document.querySelector('[data-list]');
@@ -20,12 +21,11 @@ const addTask = () => {
     
     taskList.push(TaskObject);
     localStorage.setItem("Tasks", JSON.stringify(taskList));
+    list.innerHTML = ""
+    readTask();
 
     input.value = '';
     date.value = '';
-
-    const task = crearTarea(TaskObject);
-    list.appendChild(task);
   }
   
 export function crearTarea({valor, fecha}){
