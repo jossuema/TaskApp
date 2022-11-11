@@ -8,7 +8,6 @@ const readTask = () => {
 
     let dates = uniqueDates(taskList);
     orderDates(dates);
-    //console.log(order);
     
     dates.forEach((date) =>{
         const dateMoment = moment(date, 'DD/MM/YYYY');

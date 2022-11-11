@@ -1,3 +1,4 @@
+import { uniqueDates } from "../services/date.js";
 import checkComplete from "./checkComplete.js";
 import deleteIcon from "./deleteIcon.js";
 import readTask from "./storageTask.js";
@@ -14,9 +15,13 @@ const addTask = () => {
     
     let valor = input.value;
     let fecha = moment(date.value).format("DD/MM/YYYY");
+    let completado = false;
+
     const TaskObject = {
       valor,
-      fecha
+      fecha,
+      completado,
+      id: uuid.v4()
     }
     
     taskList.push(TaskObject);
@@ -28,16 +33,24 @@ const addTask = () => {
     date.value = '';
   }
   
-export function crearTarea({valor, fecha}){
+export function crearTarea({valor, fecha, completado, id}){
     const task = document.createElement('li');
     task.classList.add('card');
 
     const taskContent = document.createElement('div');
+
+    const check = checkComplete(id);
+
+    if(completado){
+      check.classList.toggle('fas');
+      check.classList.toggle('completeIcon');
+      check.classList.toggle('far');
+    }
   
     const titleTask = document.createElement('span');
     titleTask.classList.add('task');
     titleTask.innerText = valor;
-    taskContent.appendChild(checkComplete());
+    taskContent.appendChild(check);
     taskContent.appendChild(titleTask);
 
     const dateElement = document.createElement('span');
