@@ -1,12 +1,15 @@
 import { crearTarea } from "./addTask.js";
 import dateElement from "./dateElement.js";
-import { uniqueDates } from "../services/date.js";
+import { uniqueDates, orderDates } from "../services/date.js";
 
 const readTask = () => {
     const list = document.querySelector('[data-list]')
     const taskList = JSON.parse(localStorage.getItem("Tasks")) || [];
 
-    const dates = uniqueDates(taskList);
+    let dates = uniqueDates(taskList);
+    orderDates(dates);
+    //console.log(order);
+    
     dates.forEach((date) =>{
         const dateMoment = moment(date, 'DD/MM/YYYY');
         list.appendChild(dateElement(date));
