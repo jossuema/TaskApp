@@ -21,8 +21,6 @@ const readTask = () => {
             }
         });
     })
-
-    
 }
 
 export default readTask;

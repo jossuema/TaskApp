@@ -58,7 +58,7 @@ export function crearTarea({valor, fecha, completado, id}){
 
     task.appendChild(taskContent);
     task.appendChild(dateElement);
-    task.appendChild(deleteIcon());
+    task.appendChild(deleteIcon(id));
     return task;
 }
 
