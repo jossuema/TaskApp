@@ -10,18 +10,22 @@ const addTask = () => {
     const input = document.querySelector("[data-form-imput]");
     const date = document.querySelector("[data-form-date]");
 
+    console.log(moment(date.value).format('LT'));
+
     const dateElement = document.createElement('span');
     dateElement.innerHTML = moment(date.value).format("DD/MM/YYYY");
     
     let valor = input.value;
     let fecha = moment(date.value).format("DD/MM/YYYY");
     let completado = false;
+    let hora = moment(date.value).format('LT');
 
     const TaskObject = {
       valor,
       fecha,
       completado,
-      id: uuid.v4()
+      id: uuid.v4(),
+      hora
     }
     
     taskList.push(TaskObject);
@@ -33,7 +37,7 @@ const addTask = () => {
     date.value = '';
   }
   
-export function crearTarea({valor, fecha, completado, id}){
+export function crearTarea({valor, fecha, completado, id, hora}){
     const task = document.createElement('li');
     task.classList.add('card');
 
@@ -53,11 +57,11 @@ export function crearTarea({valor, fecha, completado, id}){
     taskContent.appendChild(check);
     taskContent.appendChild(titleTask);
 
-    const dateElement = document.createElement('span');
-    dateElement.innerHTML = fecha;
+    const timeElement = document.createElement('span');
+    timeElement.innerHTML = hora;
 
     task.appendChild(taskContent);
-    task.appendChild(dateElement);
+    task.appendChild(timeElement);
     task.appendChild(deleteIcon(id));
     return task;
 }
