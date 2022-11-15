@@ -7,8 +7,7 @@ export const sortTime = (taskList, date) => {
             arrayTime.push(task.hora);
         }
     });
-
-    console.log(arrayTime)
+    
     return arrayTime;
 }
 

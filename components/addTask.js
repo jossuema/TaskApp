@@ -1,4 +1,3 @@
-import { uniqueDates } from "../services/date.js";
 import checkComplete from "./checkComplete.js";
 import deleteIcon from "./deleteIcon.js";
 import readTask from "./storageTask.js";
@@ -35,7 +34,7 @@ const addTask = () => {
 
     input.value = '';
     date.value = '';
-  }
+}
   
 export function crearTarea({valor, fecha, completado, id, hora}){
     const task = document.createElement('li');

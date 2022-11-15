@@ -1,4 +1,4 @@
-import crearTarea from "./addTask.js";
+import { crearTarea } from "./addTask.js";
 import dateElement from "./dateElement.js";
 import { uniqueDates, orderDates } from "../services/date.js";
 import { sortTime, orderTime } from "./sortTime.js";
@@ -9,8 +9,7 @@ const readTask = () => {
 
     let dates = uniqueDates(taskList); //Regresa array con fechas no repetidas
     orderDates(dates); //Ordena las fechas
-    console.log(orderDates(dates));
-    
+        
     dates.forEach((date) =>{ //Recorre cada elemento del array de fechas
 
         const dateMoment = moment(date, 'DD/MM/YYYY'); //Asigna fecha del elemento
@@ -28,8 +27,7 @@ const readTask = () => {
 
         let arrayTime = sortTime(taskList, date);
         orderTime(arrayTime);
-        console.log(orderTime(arrayTime))
-        
+            
         for(let i = 0; i< taskArray.length; i++){
             const index = taskArray.findIndex((item) => item.hora == arrayTime[0]);
             list.appendChild(crearTarea(taskArray[index]));
