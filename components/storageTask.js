@@ -1,4 +1,4 @@
-import { crearTarea } from "./addTask.js";
+import crearTarea from "./addTask.js";
 import dateElement from "./dateElement.js";
 import { uniqueDates, orderDates } from "../services/date.js";
 import { sortTime, orderTime } from "./sortTime.js";
